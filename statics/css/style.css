@@ -1,0 +1,13 @@
+.first{
+    background-color: aquamarine;
+    height: 40px;
+
+}
+.login a {
+    float: right;
+    height: 40px;
+}
+.regiest a {
+    float: left;
+    height: auto;
+}
