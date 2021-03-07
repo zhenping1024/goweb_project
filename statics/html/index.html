@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GoTask-</title>
+<!--    <link rel="stylesheet" href="../css/style.css" type="text/css">-->
+    <style type="text/css">
+        <!--
+        .first{
+            background-color: aquamarine;
+            height: 50px;
+
+        }
+        .login a {
+            float: right;
+            height: 40px;
+        }
+        .register a {
+            float: left;
+            height: auto;
+        }
+        .header{
+            height: auto;
+        }
+        .headimg{
+            float: left;
+            width: 62px;
+            height: 55px;
+            margin-top: 22px;
+            border: 1px solid black;
+        }
+        -->
+    </style>
+
+</head>
+<body>
+    <div class ="first">
+        <div class="login">
+            <a href="/">注销></a>
+            <br>
+            <a href="/index/shop">购物车</a>
+            <br>
+            <a href="/index/bag">背包</a>
+        </div>
+        <div class="register">
+            <a href="/register">{{.name}}</a>
+        </div>
+    </div>
+    <div class="header">
+        <div class="headimg">
+            <a href="">
+                <img src="../{{.imag}}" width="50" height="50"/>
+            </a>
+            <form action="" method="post" enctype="multipart/form-data">
+                头像：
+                <input type="file" name="headimag" >
+                <br>
+                <input type="submit" value="确认修改">
+            </form>
+            <form action="" method="post" enctype="multipart/form-data">
+                密码：
+                <input type="text" name="password" >
+                <br>
+                <input type="submit" value="确认修改">
+            </form>
+        </div>
+    </div>
+    <a>
+        <br>
+        用户类型:
+        <br>
+        {{.type}}
+    </a>
+    <br>
+<!--    <div>-->
+<!--        <a href="/index/up">上传商品</a>-->
+<!--    </div>-->
+    <div>
+        <div>
+            {{range $good:=.good}}
+            <a href="/good/{{$good.ID}}">
+                <p>{{$good.GoodName}}</p>
+                <p>{{$good.GoodPrice}}</p>
+                <p>{{$good.IsUp}}</p>
+                <img src="../{{$good.GoodImag}}"width="50" height="50">
+            </a>
+            {{end}}
+        </div>
+    </div>
+</body>
+</html>

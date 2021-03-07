@@ -10,11 +10,13 @@ import (
 
 func ShowLP(context*gin.Context){
 		context.HTML(http.StatusOK,"login.html",nil)
+		//context.Cookie()
+		//context.SetCookie()
 	/*
 	func(context *gin.Context) {
 				context.JSON(http.StatusOK,"login")
 			}
-	 */
+	*/
 }
 func CheckLI(context *gin.Context){
 	//接受传递信息
@@ -28,7 +30,11 @@ func CheckLI(context *gin.Context){
 	fmt.Println(acc.Name,tmpuser.Name)
 	if tmpuser.Name==acc.Name{
 		if tmpuser.Password==acc.Password{
-			context.JSON(200,"登陆成功")
+			context.SetCookie("user_cookie", string(tmpuser.Name), 1000, "/", "127.0.0.1:9090/user", false, true)
+			context.Redirect(http.StatusMovedPermanently,"/index")
+			//context.Request.URL.Path="/user/index"
+			//routers.R.HandleContext(context)
+			//context.JSON(200,"登陆成功")
 		}else{
 			context.JSON(200,"密码错误")
 		}

@@ -22,6 +22,7 @@ func DbInit(){
 	//defer DB.Close()
 	//创建表，自动迁移（把结构体和数据表进行对应
 	DB.AutoMigrate(&models.Account{})
+	DB.AutoMigrate(&models.Good{})
 }
 //创建新用户
 func AddAccount( user *models.Account){

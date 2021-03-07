@@ -22,6 +22,7 @@ func ShowRP(c*gin.Context){
 //接受前端注册数据
 func GetPI(context*gin.Context){
 	//1.接受前端所有注册信息
+	//少一步数据验证
 	//数据绑定
 	var  acc models.Account
 	context.ShouldBind(&acc)
